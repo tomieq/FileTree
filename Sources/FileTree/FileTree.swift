@@ -18,11 +18,11 @@ public class FileTree {
     }
     
     public func tree(getInfo: @escaping (URL, Bool) -> String) -> String {
-        url.absoluteString + "\n" + self.crawl(url: url, prefix: "", getInfo: getInfo)
+        url.relativePath + "\n" + self.crawl(url: url, prefix: "", getInfo: getInfo)
     }
     
     public var tree: String {
-        url.absoluteString + "\n" + self.crawl(url: url, prefix: "")
+        url.relativePath + "\n" + self.crawl(url: url, prefix: "")
     }
     
     private func crawl(url: URL, prefix: String, getInfo: ((URL, Bool) -> String)? = nil) -> String {
