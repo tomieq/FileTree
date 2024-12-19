@@ -8,3 +8,25 @@ let output = FileTree().tree { url, isDir in
 }
 print(output)
 ```
+## Installation
+
+```swift
+// swift-tools-version: 5.9
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
+import PackageDescription
+
+let package = Package(
+    name: "SomeApp",
+    dependencies: [
+        .package(url: "https://github.com/tomieq/FileTree", from: "1.0.1"),
+    ],
+    targets: [
+        .executableTarget(
+            name: "SomeApp",
+            dependencies: [
+                .product(name: "FileTree", package: "FileTree")
+            ]),
+    ]
+)
+```
